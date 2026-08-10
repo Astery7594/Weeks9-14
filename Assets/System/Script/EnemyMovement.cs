@@ -19,7 +19,6 @@ public class EnemyMovement : MonoBehaviour
         Vector3 movement = new Vector3(direction.x, direction.y, 0f) * speed * Time.deltaTime;
         transform.position += movement;//move the enemy in the specified direction (left)
         CheckBoundary();
-        GetHit();
     }
 
     void CheckBoundary()
@@ -31,16 +30,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    public void GetHit()
-    {
-        GameObject bulletObject = GameObject.FindGameObjectWithTag("Bullet");// Find the bullet object
-        Transform bullet = bulletObject.transform;// Get the bullet's position
-        float distance = Vector2.Distance(transform.position,bullet.position);// Calculate the distance between the enemy and the bullet
-        if (distance <= 0.5f) // If the distance is less than or equal to 0.5 units
-        {
-            Destroy(gameObject);// Destroy the enemy
-        }
-    }
     public void ChangeSprite(Sprite newSprite)//use in EnemySpawner to change the sprite of the enemy when it is spawned
     {
         if (spriteRenderer != null)

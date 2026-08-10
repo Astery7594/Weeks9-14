@@ -17,7 +17,7 @@ public class BulletMovement : MonoBehaviour
         Vector3 movement = new Vector3(direction.x, direction.y,0f) * speed * Time.deltaTime;
         transform.position += movement;
         CheckBoundary();
-        CheckEnemyDistance();
+        CheckEnemyHit();
 
     }
 
@@ -29,14 +29,20 @@ public class BulletMovement : MonoBehaviour
         }
     }
 
-    void CheckEnemyDistance()// Check if the bullet is close enough to the enemy then destroy it
+    void CheckEnemyHit()// Check if the bullet is close enough to the enemy then destroy it
     {
-        GameObject enemyObject = GameObject.FindGameObjectWithTag("Enemy");// Find the enemy object
-        Transform enemy = enemyObject.transform;// Get the enemy's position
-        float distance = Vector2.Distance(transform.position, enemy.position);// Calculate the distance between the bullet and the enemy
-        if (distance <= 0.5f)// If the distance is less than or equal to 0.5 units
-        {
-            Destroy(gameObject);// Destroy the bullet
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");// Find all enemy objects
+        for (int i = 0; i < enemies.Length; i++) 
+        { 
+            GameObject enemyObject = enemies[i];// Get the enemy object
+            float distance = Vector2.Distance(transform.position, enemyObject.transform.position);// Calculate the distance between the bullet and the enemy
+            if( distance <= 0.5f)// If the distance is less than or equal to 0.5 units
+            {
+                Destroy(enemyObject);// Destroy the enemy
+                Destroy(gameObject);// Destroy the bullet
+                return; // Exit the loop after destroying the enemy and bullet
+            }
+
         }
     }
 }

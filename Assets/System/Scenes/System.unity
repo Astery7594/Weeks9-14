@@ -505,6 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 958265477}
+  - component: {fileID: 958265478}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -527,6 +528,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &958265478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958265476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7200e2dd7b4b19348ae9d732d13a0098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  enemyPerfab: {fileID: 615498810312751061, guid: ba101981f51cefd4a936edd79005d766, type: 3}
+  MaxEnemyCount: 3
+  enemySprites:
+  - {fileID: 6937817954938267909, guid: ff0c76474683aeb4f8d1890009ffb92c, type: 3}
+  - {fileID: -6470460504253458178, guid: 428d65c4e0fc90441badd12b7116b154, type: 3}
+  spawnInterval: 2
 --- !u!1 &1346893944
 GameObject:
   m_ObjectHideFlags: 0
