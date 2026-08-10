@@ -5,12 +5,14 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f; // The speed at which the player moves
     public ShootModule ShootModule; // Reference to the ShootModule component
+    public ShootModule2 ShootModule2;//for the second shoot module
 
     private Vector2 moveInput; // The input vector for movement
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        ShootModule.enabled = true; // Enable the ShootModule component
+        ShootModule2.enabled = false;// Disable the ShootModule2 component
     }
 
     // Update is called once per frame
